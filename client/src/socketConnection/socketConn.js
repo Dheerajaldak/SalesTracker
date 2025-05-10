@@ -11,7 +11,8 @@ let socket = null;
 
 export const connectWithSocketIOServer = () => {
   // socket = io("http://localhost:3003");
-  socket = io("https://salestrackervisysdheeraj-a.onrender.com");
+  // socket = io("https://salestrackervisysdheeraj-a.onrender.com");
+  socket = io("https://salestrackerbackend.onrender.com");
 
   socket.on("connect", () => {
     console.log("connected to socket.io");
