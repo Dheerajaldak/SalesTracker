@@ -28,6 +28,7 @@ export const connectWithPeerServer = () => {
     host: "localhost",
     port: 9000,
     path: "/peer",
+     secure: false,
   });
   peer.on("open", (id) => {
     console.log(" My peer id is: ", id);
