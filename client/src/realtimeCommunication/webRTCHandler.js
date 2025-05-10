@@ -28,7 +28,7 @@ export const connectWithPeerServer = () => {
     host: "https://salestrackerversion1visyscloudtechdheeraja.vercel.app",
     port: 9000,
     path: "/peer",
-     secure: false,
+     // secure: false,
   });
   peer.on("open", (id) => {
     console.log(" My peer id is: ", id);
