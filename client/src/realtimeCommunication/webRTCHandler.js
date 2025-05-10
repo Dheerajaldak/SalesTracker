@@ -25,7 +25,7 @@ export const getAccessToLocalStream = async () => {
 
 export const connectWithPeerServer = () => {
   peer = new Peer(undefined, {
-    host: "localhost",
+    host: "https://salestrackerversion1visyscloudtechdheeraja.vercel.app",
     port: 9000,
     path: "/peer",
      secure: false,
