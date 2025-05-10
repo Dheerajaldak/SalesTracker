@@ -29,6 +29,12 @@ export const connectWithPeerServer = () => {
     port: 9000,
     path: "/peer",
      secure: false,
+    config: {
+    iceServers: [
+      { urls: "stun:stun.l.google.com:19302" }
+    ]
+  },
+  debug: 3
   });
   peer.on("open", (id) => {
     console.log(" My peer id is: ", id);
