@@ -26,10 +26,10 @@ export const getAccessToLocalStream = async () => {
 export const connectWithPeerServer = () => {
   peer = new Peer(undefined, {
     host: "salestrackerbackend.onrender.com",
-    port: 9000,
+    port: 443,
     path: "/peer",
-     // secure: false,
-  });
+    secure: true,
+});
   peer.on("open", (id) => {
     console.log(" My peer id is: ", id);
     peerId = id;
