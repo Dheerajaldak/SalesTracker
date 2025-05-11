@@ -101,6 +101,7 @@ export const connectWithPeerServer = () => {
   //   import.meta.env.VITE_PEER_SECURE === "true" || window.location.protocol === "https:";
 
   peer = new Peer(undefined, {
+
     host: peerHost,
     port: parseInt(peerPort, 10),
     path: peerPath,
