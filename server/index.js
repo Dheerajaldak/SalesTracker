@@ -5,7 +5,7 @@ const cors = require("cors");
 const { Server } = require("socket.io");
 const { Socket } = require("dgram");
 const { disconnect } = require("process");
-const { PeerServer } = require("peer");
+const { ExpressPeerServer } = require("peer");
 const { log } = require("console");
 
 const server = http.createServer(app);
@@ -50,7 +50,11 @@ io.on("connection", (socket) => {
   });
 });
 
-const peerServer = PeerServer({ port: 9000, path: "/peer" });
+// const peerServer = PeerServer({ port: 9000, path: "/peer" });
+const peerServer = ExpressPeerServer(server, {
+  path: "/peer",
+});
+app.use("/peerjs", peerServer);
 
 const PORT = process.env.PORT || 3003;
 server.listen(PORT, () => {
@@ -214,7 +218,6 @@ const checkIfUserIsInCall = (socket) => {
   });
 };
 const removeUserFromTheVideoRoom = (socketId, roomId) => {
- 
   videoRooms[roomId].participants = videoRooms[roomId].participants.filter(
     (p) => p.socketId !== socketId
   );
@@ -223,7 +226,7 @@ const removeUserFromTheVideoRoom = (socketId, roomId) => {
     delete videoRooms[roomId];
   } else {
     //still have participants left, notify the first one
-    
+
     io.to(videoRooms[roomId].participants[0].socketId).emit(
       "video-call-disconnect"
     );
