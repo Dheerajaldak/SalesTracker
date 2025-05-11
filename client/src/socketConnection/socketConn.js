@@ -10,7 +10,7 @@ import { call, disconnect } from "../realtimeCommunication/webRTCHandler";
 let socket = null;
 
 export const connectWithSocketIOServer = () => {
-  socket = io(`${import.meta.env.VITE_SOCKET_URL}${import.meta.env.VITE_PEER_PORT}`);
+  socket = io(`${import.meta.env.VITE_SOCKET_URL}`);
   // socket = io("http://localhost:3003");
 
 
